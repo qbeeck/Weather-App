@@ -2,6 +2,8 @@ import React from 'react';
 import Header from '../src/components/Header/index.jsx';
 import AddList from '../src/components/City-block/index.jsx';
 
+import dataBaseJSON from '../src/components/assets/database.json';
+
 function App() {
   return (
     <div className="weather-app">
@@ -10,7 +12,7 @@ function App() {
       </div>
 
       <div className="weather-app__city-block">
-        <AddList  />
+        <AddList cities={dataBaseJSON.cities} />
       </div>
 
     </div>
