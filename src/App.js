@@ -10,11 +10,10 @@ function App() {
       <div className="weather-app__header">
         <Header />
       </div>
-
+      <div className="weather-app__alert"></div>
       <div className="weather-app__city-block">
-        <AddList cities={dataBaseJSON.cities} />
+        <AddList cities={dataBaseJSON.cities}/>
       </div>
-
     </div>
   );
 }
