@@ -6,26 +6,30 @@ const Header = () => {
   const [searchWord, setSearchWord] = useState("");
   const [loading, setLoading] = useState("false");
   const [result, setResult] = useState();
-  
-  const enteredData = () => searchWord !== "" ? getCityInfo() : alert("Введите запрос!");
 
-  
-  const getCityInfo = async () => {
+  const fetchData = async () => {
+    if (!searchWord) {
+      alert("Введите название списка");
+      return;
+    }
     try {
       setLoading("true");
-      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${searchWord}&appid=fd12c0b603b681217c41eefc997c5495`);
+      const response = await fetch(
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchWord}&appid=fd12c0b603b681217c41eefc997c5495`
+      );
       const json = await response.json();
-      setResult(json);
+      if (json.cod !== "404") {
+        setResult(json);
+      }
+      console.log(json);
     } catch (error) {
       setLoading("null");
-      alert("Something wrong with API!")
+      alert("Something wrong with API!");
     }
-  }
-
-  
+  };
 
   return (
-    <div>
+    <div> 
       <input
         value={searchWord}
         onChange={(e) => setSearchWord(e.target.value)}
@@ -34,7 +38,7 @@ const Header = () => {
         placeholder="Сity name"
       ></input>
       <button
-      onClick={enteredData}
+        onClick={fetchData}
         className="weather-app__header__search-button"
       >
         Search
@@ -44,6 +48,3 @@ const Header = () => {
 };
 
 export default Header;
-
-
-// `api.openweathermap.org/data/2.5/weather?q=${searchWord}&appid=fd12c0b603b681217c41eefc997c5495`
