@@ -2,16 +2,10 @@ import React, {useState} from 'react';
 import Header from '../src/components/Header/index.jsx';
 import AddList from '../src/components/City-block/index.jsx';
 
-import dataBaseJSON from '../src/components/assets/database.json';
-
 function App() {
-  const [lists, setLists] = useState(
-    dataBaseJSON.cities.map((item) => {
-      return item;
-    })
-  );
+  const [lists, setLists] = useState([]);
 
-  const onAddList = (obj) => {
+  const onAddList = (obj) => { 
     const newList = [...lists, obj];
     setLists(newList);
   };
@@ -23,7 +17,7 @@ function App() {
       </div>
       <div className="weather-app__alert"></div>
       <div className="weather-app__city-block">
-        <AddList cities={lists}/>
+        <AddList cities={lists} />
       </div>
     </div>
   );
