@@ -2,10 +2,8 @@ import React, { useState } from "react";
 
 import "./Header.scss";
 
-const Header = () => {
+const Header = ({ onAdd }) => {
   const [searchWord, setSearchWord] = useState("");
-  const [loading, setLoading] = useState("false");
-  const [result, setResult] = useState();
 
   const fetchData = async () => {
     if (!searchWord) {
@@ -13,23 +11,27 @@ const Header = () => {
       return;
     }
     try {
-      setLoading("true");
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${searchWord}&appid=fd12c0b603b681217c41eefc997c5495`
       );
       const json = await response.json();
-      if (json.cod !== "404") {
-        setResult(json);
+      if (json.base !== "stations") { 
+        alert(json.message);
+        return;
       }
-      console.log(json);
+      let obj = {
+        id: Math.random(),
+        name: json.name,
+        temperature: Math.round(json.main.temp - 273.15)
+      };
+      onAdd(obj);
     } catch (error) {
-      setLoading("null");
       alert("Something wrong with API!");
     }
   };
 
   return (
-    <div> 
+    <div>
       <input
         value={searchWord}
         onChange={(e) => setSearchWord(e.target.value)}
