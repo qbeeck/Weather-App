@@ -1,9 +1,0 @@
-{
-  "cities": [
-    {
-      "id": 1, 
-      "name": "London", 
-      "temperature": 5
-    }
-  ]
-}
