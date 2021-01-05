@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HashRouter, Route, Link } from "react-router-dom";
 import Header from "../src/components/Header/index.jsx";
 import Modal from "../src/components/Modal/index.jsx";
 import AddList from "../src/components/City-block/index.jsx";
@@ -34,7 +33,6 @@ function App() {
   };
 
   return (
-    <HashRouter basename="/">
       <div className="weather-app">
         <div className="weather-app__header">
           <Header onAdd={onAddList} />
@@ -58,12 +56,7 @@ function App() {
           />
         </div>
       </div>
-    </HashRouter>
   );
 }
-
-const Header = () => <div><h2>Header</h2></div>
-const Modal = () => <div><h2>Modal</h2></div>
-const AddList = () => <div><h2>AddList</h2></div>
 
 export default App;
