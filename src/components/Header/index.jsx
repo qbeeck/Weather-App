@@ -25,6 +25,7 @@ const Header = ({ onAdd }) => {
         temperature: Math.round(json.main.temp - 273.15)
       };
       onAdd(obj);
+      setSearchWord("");
     } catch (error) {
       alert("Something wrong with API!");
     }
