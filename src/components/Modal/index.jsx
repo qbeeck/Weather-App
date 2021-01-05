@@ -26,9 +26,9 @@ const Modal = ({ modalGive }) => {
               <span className="temperature__feels-like">Feels like : {item.feelsLike}°С</span>
             </div>
             <div className="modal-body__other-info">
-              <span className="other-info__pressure">Pressure : {item.pressure}</span>
-              <span className="other-info__humidity">Humidity : {item.humidity}%</span>
-              <span className="other-info__wind-speed">Wind speed : {item.speedWind}mph</span>
+              <span className="other-info__pressure">Pressure : {item.pressure} m.c</span>
+              <span className="other-info__humidity">Humidity : {item.humidity} %</span>
+              <span className="other-info__wind-speed">Wind speed : {item.speedWind} km/h</span>
             </div>
           </div>
           <div className="modal-content__modal-footer">

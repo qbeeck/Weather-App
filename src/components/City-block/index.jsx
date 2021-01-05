@@ -17,7 +17,7 @@ const AddCity = ({ cities, removeCity, result }) => {
       feelsLike: Math.round(json.main.feels_like - 273.15),
       pressure: Math.round(json.main.pressure * 0.75),
       humidity: json.main.humidity,
-      speedWind: json.wind.speed,
+      speedWind: Math.round(json.wind.speed * 3,6),
       sunrise: json.sys.sunrise,
       sunset: json.sys.sunset,
     };
