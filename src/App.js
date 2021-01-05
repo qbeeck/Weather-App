@@ -33,28 +33,6 @@ function App() {
   };
 
   return (
-<<<<<<< HEAD
-      <div className="weather-app">
-        <div className="weather-app__header">
-          <Header onAdd={onAddList} />
-        </div>
-        {visibleModal && (
-          <div className="weather-app__modal">
-            <img
-              onClick={() => setVisibleModal(false)}
-              src={closeButtonSvg}
-              className="modal__return-button"
-              alt="close"
-            />
-            <Modal modalGive={resultObj} />
-          </div>
-        )}
-        <div className="weather-app__city-block">
-          <AddList
-            result={(obj) => openModal(obj)}
-            cities={lists}
-            removeCity={(item) => onRemoveList(item)}
-=======
     <div className="weather-app">
       <div className="weather-app__header">
         <Header onAdd={onAddList} />
@@ -66,7 +44,6 @@ function App() {
             src={closeButtonSvg}
             className="modal__return-button"
             alt="close"
->>>>>>> parent of 5ba824c... gh-pages
           />
           <Modal modalGive={resultObj} />
         </div>
@@ -78,10 +55,7 @@ function App() {
           removeCity={(item) => onRemoveList(item)}
         />
       </div>
-<<<<<<< HEAD
-=======
     </div>
->>>>>>> parent of 5ba824c... gh-pages
   );
 }
 
