@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Modal.scss";
 
-const Modal = ({ modalGive }) => {
+const Modal = ({ modalList }) => {
   const timeConverter = (time) => {
     let date = new Date(time * 1000);
     let hours = date.getHours();
@@ -13,7 +13,7 @@ const Modal = ({ modalGive }) => {
   };
   return (
     <div className="modal__modal-content">
-      {modalGive.map((item) => (
+      {modalList.map((item) => (
         <div key={item.id}>
           <div className="modal-content__modal-header">
             <span className="modal-header__city-name">{item.city}</span>

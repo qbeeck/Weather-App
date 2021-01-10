@@ -8,7 +8,7 @@ import closeButtonSvg from "../src/components/assets/close.svg";
 function App() {
   const [lists, setLists] = useState([]);
   const [visibleModal, setVisibleModal] = useState(false);
-  const [resultObj, setResulObj] = useState();
+  const [resultModal, setResultModal] = useState();
 
   const onAddList = (obj) => {
     const newList = [...lists, obj];
@@ -28,7 +28,7 @@ function App() {
   };
 
   const openModal = (obj) => {
-    setResulObj(obj);
+    setResultModal(obj);
     setVisibleModal(true);
   };
 
@@ -45,7 +45,7 @@ function App() {
             className="modal__return-button"
             alt="close"
           />
-          <Modal modalGive={resultObj} />
+          <Modal modalList={resultModal} />
         </div>
       )}
       <div className="weather-app__city-block">
